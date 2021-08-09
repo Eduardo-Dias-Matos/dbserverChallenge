@@ -11,9 +11,15 @@ let olympicsMedalTable = [
     { id: 10, country: "QUÊNIA", gold: 6, silver: 6, bronze: 1, continent: "AFRICA" },
 ];
 
-Array.prototype.customFind = function (predicate) {
+Array.prototype.customFindAfrica = function (paisContinente) {
+    const paisAfricano = olympicsMedalTable.find( paisContinente => paisContinente.continent === "AFRICA" );
+    return paisAfricano;
+}
+
+Array.prototype.customFindMedalhasOuro = function (medalhas) {
     // Implemente aqui seu algoritmo
-    return null;
+    const paisesCom10MedalhasOuroNoMinimo = olympicsMedalTable.find( medalhas => medalhas.gold === 10 );
+    return medalhas;
 }
 
 Array.prototype.customSome = function (predicate) {
@@ -31,9 +37,10 @@ Array.prototype.customMap = function (callback) {
     return [];
 }
 
-Array.prototype.customReduce = function (callback, initialValue) {
+Array.prototype.customReduceSomaMedalhasPorPais = function (callback, initialValue) {
     // Implemente aqui seu algoritmo
-    return null;
+    const medalhasPorPais = olympicsMedalTable.reduce( (prevVal, elem) => prevVal + elem.bronze + elem.gold + elem.silver );
+    return medalhasPorPais;
 }
 
 // Código modelo utilizando filter, map e reduce
